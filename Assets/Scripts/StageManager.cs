@@ -4,10 +4,11 @@ using System.Collections;
 
 public class StageManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    // Use this for initialization
+    void Start()
+    {
+        DataController.Instance.Load();
+    }
 	
 	// Update is called once per frame
 	void Update () {
