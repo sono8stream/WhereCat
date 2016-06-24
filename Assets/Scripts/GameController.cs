@@ -33,6 +33,9 @@ public class GameController : MonoBehaviour
     int skillTimer;
     int catCount;
     float startTime, nowTime;
+    [SerializeField]
+    AudioClip searchSE, thunderSE, findSE, enterSE, winSE, loseSE;
+    AudioSource audio;
 
     // Use this for initialization
     void Start()
@@ -56,12 +59,13 @@ public class GameController : MonoBehaviour
         {
             buckets[i] = Instantiate(bucket);
             buckets[i].SetActive(true);
-            buckets[i].transform.SetParent(gameObject.transform);
+            buckets[i].transform.SetParent(gameObject.transform.FindChild("Thunders"));
             buckets[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(-200 + 70 * i, -300);
             buckets[i].GetComponent<RectTransform>().localScale = Vector3.one;
             buckets[i].GetComponent<Image>().color = Color.yellow;
         }
         text.text = "猫以外のパネルをすべて消してください。\nタップしてパネルを消す。";
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -84,7 +88,7 @@ public class GameController : MonoBehaviour
                         }
                     }
                 }
-                else if (skillCount == skillTimer + 1)
+                else if (skillCount == 0||skillCount==1)
                 {
                     foreach (GameObject panel in GameObject.FindGameObjectsWithTag("Panel"))
                     {
@@ -93,11 +97,10 @@ public class GameController : MonoBehaviour
                             panel.transform.FindChild("garbage").GetComponent<Animator>().SetBool("Skill", false);
                         }
                     }
-                    for(int i=1;i<skillTimer;i++)
+                    for (int i = skillCount; i < skillTimer; i++)
                     {
                         buckets[i].GetComponent<Image>().color = Color.white;
                     }
-                    skillCount = 1;
                 }
                 if (removeCount == catCount - 1)
                 {
@@ -106,9 +109,7 @@ public class GameController : MonoBehaviour
                         if (panel.GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             panel.GetComponent<SpriteRenderer>().color = gold;
-                            Debug.Log("でいてはいる");
                         }
-                        Debug.Log("おかしいぞ");
                     }
                 }
                 turnCount++;
@@ -152,7 +153,6 @@ public class GameController : MonoBehaviour
             case 2://パネル除去
                 #region パネル除去
                 Vector2 catPos = cat.transform.position;
-                int countLimit = 50;
                 win = true;
                 foreach (GameObject panel in GameObject.FindGameObjectsWithTag("Panel"))
                 {
@@ -165,12 +165,17 @@ public class GameController : MonoBehaviour
                         {
                             if (srn.color == Color.white || srn.color == gold)
                             {
+                                audio.PlayOneShot(searchSE);
                                 removeCount++;
                                 if (skillCount < skillTimer)
                                 {
                                     buckets[skillCount].GetComponent<Image>().color = Color.yellow;
                                 }
                                 skillCount++;
+                                if (skillCount > skillTimer)
+                                {
+                                    skillCount = 1;
+                                }
                                 panel.GetComponent<Animator>().SetTrigger("Delete");
                                 panel.GetComponent<PanelController>().isDestroying = true;
                                 win = (Vector2)panel.transform.position != catPos && removeCount < catCount;
@@ -178,6 +183,7 @@ public class GameController : MonoBehaviour
                             }
                             else if (skillCount == skillTimer)
                             {
+                                audio.PlayOneShot(thunderSE);
                                 int searchNo = 0;
                                 for (int i = 0; i < signal.Length; i++)
                                 {
@@ -190,7 +196,7 @@ public class GameController : MonoBehaviour
                                 RemovePanel(panel);
                                 SearchPanel(searchNo);
                                 skillCount = 0;
-                                for(int i=0;i<buckets.Length;i++)
+                                for (int i = 0; i < buckets.Length; i++)
                                 {
                                     buckets[i].GetComponent<Image>().color = Color.white;
                                 }
@@ -280,12 +286,13 @@ public class GameController : MonoBehaviour
                     }
                     else
                     {
+                        audio.PlayOneShot(findSE);
                         message = "You Lose...";
                     }
                     text.text = message;
                     counter++;
                 }
-                else if (counter>10&&Input.GetMouseButtonDown(0))
+                else if (counter > 10 && Input.GetMouseButtonDown(0))
                 {
                     phaseNo = (int)PhaseName.リザルト;
                     counter = -1;
@@ -296,15 +303,21 @@ public class GameController : MonoBehaviour
             case 7://リザルト
                 if (counter == 0)
                 {
+                    audio.Stop();
                     StageData stgData = DataController.Instance.stageData[stageNo];
                     stgData.playCount++;
                     if (win)
                     {
+                        audio.PlayOneShot(winSE);
                         stgData.winCount++;
                         if (nowTime < stgData.bestScore || stgData.bestScore == -1)
                         {
                             stgData.bestScore = (int)nowTime;
                         }
+                    }
+                    else
+                    {
+                        audio.PlayOneShot(loseSE);
                     }
                     string bestScoreText = stgData.bestScore == -1 ? "--" : stgData.bestScore.ToString();
                     float winPer = (float)stgData.winCount / stgData.playCount;
@@ -314,7 +327,7 @@ public class GameController : MonoBehaviour
                         + stgData.playCount.ToString() + "回";
                     result.transform.FindChild("Win Count").GetComponent<Text>().text = "勝利数              "
                         + stgData.winCount.ToString() + "回";
-                    result.transform.FindChild("Win Percentage").GetComponent<Text>().text = "勝率                "
+                    result.transform.FindChild("Win Percentage").GetComponent<Text>().text = "勝率            "
                         + winPer.ToString("0.0%");
                     result.transform.FindChild("Time").GetComponent<Text>().text = "タイム             "
                         + ((int)nowTime).ToString() + "s";
@@ -385,8 +398,8 @@ public class GameController : MonoBehaviour
                 count++;
             }
         }
-        string numText=count>0 ? /*Random.Range(1,count+1)*/count.ToString()+"枚":"0枚";
-        text.text = signalName[flagColorNo] + "パネルは" + numText;
+        string numText=count>0 ? /*Random.Range(1,count+1)*/count.ToString()+"枚あります。":"ありません。";
+        text.text = signalName[flagColorNo] + "パネルは、猫の周囲に" + numText;
     }
 
     /// <summary>
@@ -395,21 +408,22 @@ public class GameController : MonoBehaviour
     void RemovePanel(GameObject panel)
     {
         panel.GetComponent<Animator>().SetTrigger("Delete");
+        panel.transform.FindChild("garbage").GetComponent<Animator>().SetTrigger("Delete");
         panel.GetComponent<PanelController>().isDestroying = true;
         Color c = panel.GetComponent<SpriteRenderer>().color;
         foreach (GameObject p in panels)
         {
             if (panel != null && p != null)
             {
-                if (p.GetComponent<SpriteRenderer>().color != Color.white)
-                {
-                    p.transform.FindChild("garbage").GetComponent<Animator>().SetBool("Skill", false);
-                }
                 if ((p.transform.position - panel.transform.position).magnitude <= 1
                     && p.GetComponent<SpriteRenderer>().color == c && !p.GetComponent<PanelController>().isDestroying)
                 {
                     RemovePanel(p);
                 }
+                /*else if (p.GetComponent<SpriteRenderer>().color != Color.white)
+                {
+                    p.transform.FindChild("garbage").GetComponent<Animator>().SetBool("Skill", false);
+                }*/
             }
         }
     }

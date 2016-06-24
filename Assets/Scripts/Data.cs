@@ -12,7 +12,6 @@ public class DataController
 {
     //[NonSerialized]
     public StageData[] stageData;
-    //public StageData stg1, stg2;
     private static readonly string savePath = Application.dataPath + "/save.bytes";
     static DataController instance;
     public static DataController Instance
@@ -22,7 +21,7 @@ public class DataController
             if (instance == null)
             {
                 instance = new DataController();
-                instance.stageData = new StageData[2] { new StageData(), new StageData() };
+                instance.stageData = new StageData[3] { new StageData(), new StageData(),new StageData() };
             }
             return instance;
         }
@@ -66,8 +65,6 @@ public class DataController
 
         MemoryStream dataStream = new MemoryStream(System.Convert.FromBase64String(serializedData));
         instance = (DataController)bf.Deserialize(dataStream);
-        //stageData[0] = stg1;
-        //stageData[1] = stg2;
         return instance;
     }
 

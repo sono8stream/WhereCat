@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 2a35b67c6ebf82148b53d85e5d47dbd5
+timeCreated: 1466682855
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: thunEffect_0
+    21300002: thunEffect_1
+    21300004: thunEffect_2
+    21300006: thunEffect_3
+    21300008: thunEffect_4
+    21300010: thunEffect_5
+    21300012: thunEffect_6
+    21300014: thunEffect_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 240
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: thunEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 24}
+        - {x: -34, y: -19}
+        - {x: -36, y: -30}
+        - {x: -36, y: -59}
+        - {x: -10, y: -59}
+        - {x: 7, y: -52}
+        - {x: 20, y: -17}
+        - {x: 20, y: 15}
+        - {x: 17, y: 24}
+    - name: thunEffect_1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 59}
+        - {x: -24, y: 30}
+        - {x: -24, y: -45}
+        - {x: 15, y: -55}
+        - {x: 45, y: -55}
+        - {x: 56, y: -54}
+        - {x: 72, y: -35}
+        - {x: 72, y: -7}
+        - {x: 40, y: 59}
+    - name: thunEffect_2
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -79, y: 41}
+        - {x: -91, y: 32}
+        - {x: -91, y: -47}
+        - {x: -85, y: -69}
+        - {x: -80, y: -70}
+        - {x: 40, y: -70}
+        - {x: 51, y: -56}
+        - {x: 51, y: -10}
+        - {x: 31, y: 41}
+    - name: thunEffect_3
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 83}
+        - {x: -70, y: 54}
+        - {x: -70, y: -28}
+        - {x: -55, y: -58}
+        - {x: 43, y: -78}
+        - {x: 54, y: -78}
+        - {x: 73, y: -59}
+        - {x: 73, y: -30}
+        - {x: -5, y: 83}
+    - name: thunEffect_4
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 87, y: 49}
+        - {x: 61, y: 42}
+        - {x: 63, y: 45}
+        - {x: 61, y: 57}
+        - {x: 58, y: 60}
+        - {x: 51, y: 64}
+        - {x: 47, y: 65}
+        - {x: 33, y: 65}
+        - {x: -44, y: 33}
+        - {x: -44, y: -28}
+        - {x: -5, y: -47}
+        - {x: 33, y: -52}
+        - {x: 69, y: -52}
+        - {x: 77, y: -32}
+        - {x: 93, y: 15}
+        - {x: 93, y: 45}
+    - name: thunEffect_5
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 80, y: 63}
+        - {x: 46, y: 63}
+        - {x: -23, y: 45}
+        - {x: -35, y: 39}
+        - {x: -35, y: -18}
+        - {x: -33, y: -31}
+        - {x: -7, y: -52}
+        - {x: 48, y: -67}
+        - {x: 65, y: -67}
+        - {x: 75, y: -55}
+        - {x: 86, y: 0}
+        - {x: 86, y: 49}
+      - - {x: 66, y: -36}
+        - {x: 65, y: -38}
+        - {x: 65, y: -42}
+        - {x: 69, y: -44}
+        - {x: 71, y: -44}
+        - {x: 73, y: -43}
+        - {x: 73, y: -41}
+        - {x: 70, y: -36}
+    - name: thunEffect_6
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: 45}
+        - {x: 53, y: 45}
+        - {x: 38, y: 40}
+        - {x: 12, y: 45}
+        - {x: -15, y: 45}
+        - {x: -19, y: 42}
+        - {x: -39, y: 33}
+        - {x: -39, y: -29}
+        - {x: -28, y: -86}
+        - {x: 42, y: -86}
+        - {x: 100, y: -47}
+        - {x: 100, y: 8}
+        - {x: 69, y: 40}
+    - name: thunEffect_7
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 82}
+        - {x: -54, y: 25}
+        - {x: -40, y: -38}
+        - {x: 51, y: -38}
+        - {x: 80, y: -28}
+        - {x: 80, y: 6}
+        - {x: -15, y: 82}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,10 +1,22 @@
 fileFormatVersion: 2
 guid: 9b6ebc79b0d294d4a9f0f4363900fcea
-timeCreated: 1465302295
+timeCreated: 1466698584
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cat: {instanceID: 0}
+  - bucket: {instanceID: 0}
+  - result: {instanceID: 0}
+  - text: {instanceID: 0}
+  - turn: {instanceID: 0}
+  - time: {instanceID: 0}
+  - searchSE: {fileID: 8300000, guid: a0e65b35838640741adcf662887a5ff3, type: 3}
+  - thunderSE: {fileID: 8300000, guid: f1d528d9b46c6ba4b875c033d7438295, type: 3}
+  - findSE: {fileID: 8300000, guid: 8521af5acb901384791c378479a1f713, type: 3}
+  - enterSE: {fileID: 8300000, guid: db3d1b1a9cb2b3a4293ed90249e8246a, type: 3}
+  - winSE: {fileID: 8300000, guid: d2a19b345b00d9d4b9f342487435d25a, type: 3}
+  - loseSE: {fileID: 8300000, guid: 71d4a964eca135c4584888fa4fd4fbe7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
